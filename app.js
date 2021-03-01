@@ -268,7 +268,10 @@ function createHtmlTags(person){
             charactersList.innerHTML = "";
             const targetText = e.target.innerHTML;
             filterTags.push(targetText);
+           
+            //create new array for clicked filter tags
             filterTags = [...new Set(filterTags)];
+           
             searchBarActive();
             setJobList(filterTags);
         });
@@ -324,10 +327,12 @@ function createTabs(item){
 
     button.addEventListener("click", (e) => {
         let text = e.target.closest(".tabs").querySelector("p").textContent;
+                console.log(text);
         array = data;
         tabEl.remove();
         searchBarActive();
         return setJobList(ccc(text));
+
     });
     return [searchBar.appendChild(tabEl), searchBarActive()];
 
